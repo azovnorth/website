@@ -297,10 +297,259 @@
   </header>
 
   <main>
-    <!-- hero, services, quote, contact sections unchanged from your version -->
-    <!-- keep exactly what you had below this point -->
+    <section class="hero" id="top">
+      <div>
+        <h1>Industrial Automation &amp; Control System Upgrades</h1>
+        <h2>Where Sparks Meet Innovation – Serving Winnipeg and Manitoba</h2>
+        <p>AzovNorth Industries helps manufacturers keep critical equipment running by auditing existing control systems, backing up programs, and planning safe migrations from aging PLC and HMI platforms to modern, supportable solutions.</p>
+        <div class="hero-badges">
+          <span class="badge">Industrial Electrician – Journeyperson</span>
+          <span class="badge">PLC &amp; HMI Programming</span>
+          <span class="badge">Legacy System Modernization</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="scrollToId('quote-section')">Request a Quote</button>
+          <button class="btn btn-secondary" onclick="scrollToId('services')">View Services</button>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <h3>Not sure where to start?</h3>
+        <p>Many plants run on older PLCs and HMIs with no backups and limited support. AzovNorth helps you understand the risk and plan upgrades before problems stop production.</p>
+        <ul>
+          <li>Non‑intrusive control system audits</li>
+          <li>Secure PLC &amp; HMI program backups</li>
+          <li>Clear roadmaps for replacement and migration</li>
+        </ul>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.2rem;">Use the quote form below to select the services you are interested in. No technical background required.</p>
+      </aside>
+    </section>
 
-    <!-- (For brevity here, paste your existing <section class="hero"> ... down to </main> unchanged) -->
+    <section id="services">
+      <div class="pill">Phase 1 – Review &amp; Planning</div>
+      <h2 class="section-title">Review &amp; Planning Services</h2>
+      <p class="section-sub">These services help you understand the current condition of your automation systems and define safe, realistic upgrade paths.</p>
+      <div class="services-grid">
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-audit" onchange="syncService('Automation System Health Audit',this.checked)">
+            <div>
+              <h3>Automation System Health Audit</h3>
+              <small>Check‑up of your existing control system</small>
+            </div>
+          </div>
+          <p>We walk through your equipment and provide a simple report that shows what is working well, what is risky, and what should be improved first.</p>
+          <ul>
+            <li>On‑site review of panels and controllers</li>
+            <li>Photos and notes of key issues</li>
+            <li>Summary report with risks and recommended actions</li>
+          </ul>
+          <div class="tagline">Helps answer: “Is this system reliable?”</div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-backup" onchange="syncService('PLC & HMI Program Backup Service',this.checked)">
+            <div>
+              <h3>PLC &amp; HMI Program Backup Service</h3>
+              <small>Protect your programs before hardware fails</small>
+            </div>
+          </div>
+          <p>We safely extract and organize your PLC and HMI programs so they can be restored quickly if a processor, memory card, or HMI panel fails.</p>
+          <ul>
+            <li>Complete PLC and HMI program backups</li>
+            <li>Version and software summary</li>
+            <li>Organized folder structure for your records</li>
+          </ul>
+          <div class="tagline">Helps answer: “Do we have a working backup?”</div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-roadmap" onchange="syncService('Legacy Control System Upgrade Roadmap',this.checked)">
+            <div>
+              <h3>Legacy Control System Upgrade Roadmap</h3>
+              <small>Step‑by‑step modernization plan</small>
+            </div>
+          </div>
+          <p>We analyze older systems and create a clear plan to modernize them over time, showing priorities, phases, and rough budget ranges.</p>
+          <ul>
+            <li>Obsolete and high‑risk parts list</li>
+            <li>Recommended replacement platforms</li>
+            <li>Phased upgrade strategy with budget ranges</li>
+          </ul>
+          <div class="tagline">Helps answer: “What should we replace first?”</div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-planning" onchange="syncService('Control System Migration Planning',this.checked)">
+            <div>
+              <h3>Control System Migration Planning</h3>
+              <small>Plan brand‑to‑brand PLC changes</small>
+            </div>
+          </div>
+          <p>We plan how to move from one PLC platform to another (for example from SLC 5 to Click or newer Allen‑Bradley) before any programming begins.</p>
+          <ul>
+            <li>Detailed I/O and signal mapping</li>
+            <li>Function and sequence overview</li>
+            <li>Migration risks, timing, and cost ranges</li>
+          </ul>
+          <div class="tagline">Helps answer: “What is involved in changing PLC platforms?”</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="pill">Phase 2 – Engineering &amp; Execution</div>
+      <h2 class="section-title">Engineering &amp; Execution Services</h2>
+      <p class="section-sub">Once the plan is clear, these services implement the required PLC and HMI changes, from small adjustments to complete platform migrations.</p>
+      <div class="services-grid">
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-plc-rewrite" onchange="syncService('Complete PLC Program Re‑Engineering',this.checked)">
+            <div>
+              <h3>Complete PLC Program Re‑Engineering</h3>
+              <small>Rebuild legacy PLC code on a modern controller</small>
+            </div>
+          </div>
+          <p>We completely rebuild your old PLC program on a modern controller using clean logic, clear tag names, comments, and offline testing.</p>
+          <ul>
+            <li>New PLC program for the selected platform</li>
+            <li>Structured tags and documentation</li>
+            <li>Offline testing and verification</li>
+          </ul>
+          <div class="tagline">Ideal when original code is old or undocumented.</div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-hmi" onchange="syncService('HMI Application Redesign & Tag Mapping',this.checked)">
+            <div>
+              <h3>HMI Application Redesign &amp; Tag Mapping</h3>
+              <small>New operator screens matched to the new PLC program</small>
+            </div>
+          </div>
+          <p>We design a new HMI application that is easy to read, shows the right information, and is fully aligned with the PLC tags and logic.</p>
+          <ul>
+            <li>New HMI screens and navigation</li>
+            <li>Alarms, trends, and diagnostics</li>
+            <li>Clean tag mapping and documentation</li>
+          </ul>
+          <div class="tagline">Improves operator clarity and maintenance.</div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-turnkey" onchange="syncService('Turnkey PLC & HMI Migration (Full Re‑Engineering)',this.checked)">
+            <div>
+              <h3>Turnkey PLC &amp; HMI Migration</h3>
+              <small>Full re‑engineering from old to new platform</small>
+            </div>
+          </div>
+          <p>We take responsibility for moving your system from old PLC and HMI hardware to a modern platform, including design, programming, testing, and commissioning support.</p>
+          <ul>
+            <li>PLC program rewrite</li>
+            <li>HMI redesign</li>
+            <li>Testing and on‑site/remote commissioning support</li>
+          </ul>
+          <div class="tagline">Best for major upgrades or platform changes.</div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-mods" onchange="syncService('PLC & HMI Program Modifications / Feature Upgrades',this.checked)">
+            <div>
+              <h3>PLC &amp; HMI Modifications / Feature Upgrades</h3>
+              <small>Smaller changes and improvements to existing systems</small>
+            </div>
+          </div>
+          <p>We implement small improvements such as adding sensors or I/O, modifying sequences or interlocks, and adding alarms or extra screens.</p>
+          <ul>
+            <li>Scope agreed in advance</li>
+            <li>Engineering, programming, and testing</li>
+            <li>Updated documentation</li>
+          </ul>
+          <div class="tagline">Ideal when you want “tune‑ups” rather than full replacement.</div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <input type="checkbox" id="svc-support" onchange="syncService('On‑Call Automation Support',this.checked)">
+            <div>
+              <h3>On‑Call Automation Support</h3>
+              <small>Help when automation issues affect production</small>
+            </div>
+          </div>
+          <p>We provide troubleshooting and support when control problems slow down or stop your production, either remotely or on‑site.</p>
+          <ul>
+            <li>Fault finding and diagnostics</li>
+            <li>Temporary work‑arounds where needed</li>
+            <li>Recommendations for permanent fixes</li>
+          </ul>
+          <div class="tagline">Supports maintenance teams during critical events.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="quote-section">
+      <h2 class="section-title">Request a Service Quote</h2>
+      <p class="section-sub">Use this form to tell us which services you are interested in. We will review your information and contact you with clarifying questions and a detailed quote.</p>
+      <div class="two-col">
+        <div class="box">
+          <h3>Company &amp; Project Details</h3>
+          <label>Company Name</label>
+          <input id="f-company" type="text" placeholder="Example: Stainless Fabrication Ltd.">
+          <label>Contact Person</label>
+          <input id="f-contact" type="text" placeholder="Your name">
+          <label>Email</label>
+          <input id="f-email" type="email" placeholder="you@example.com">
+          <label>Phone</label>
+          <input id="f-phone" type="text" placeholder="Preferred contact number">
+          <label>Site Location / City</label>
+          <input id="f-location" type="text" placeholder="Example: Winnipeg, MB">
+          <label>Machine / Line Name</label>
+          <input id="f-machine" type="text" placeholder="Example: Packaging Line 3">
+          <label>Brief Description of Your Situation</label>
+          <textarea id="f-notes" placeholder="Example: Need an audit of existing control panel and small changes to add new sensor on conveyor."></textarea>
+          <div class="small">You can simply describe the problem in plain language. Technical details are helpful but not required.</div>
+          <div style="margin-top:0.8rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+            <button class="btn btn-primary" type="button" onclick="generateSummary()">Generate quote summary</button>
+            <button class="btn btn-secondary" type="button" onclick="copySummary()">Copy summary to clipboard</button>
+          </div>
+          <div class="status" id="status-msg"></div>
+        </div>
+        <div class="box">
+          <h3>Quote Request Summary (Preview)</h3>
+          <p class="small" style="margin-bottom:0.4rem;">This is a text summary you can also copy into your own email if needed. When you submit the form, we receive the same information.</p>
+          <div id="summary" class="summary">(Select services and click “Generate quote summary” to see a preview.)</div>
+          <p class="small">No prices are shown here. After reviewing the scope, AzovNorth Industries will respond with a detailed proposal and pricing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact AzovNorth Industries</h2>
+      <p class="section-sub">Prefer to talk directly? Use the details below or send us a short message.</p>
+      <div class="contact-cols">
+        <div class="box">
+          <h3>Direct Contact</h3>
+          <p class="small"><strong>Phone:</strong><br>(204) 292‑6667<br>(204) 869‑6305</p>
+          <p class="small" style="margin-top:0.4rem;"><strong>Email:</strong><br><a href="mailto:billy.fuller@azovnorth.ca">billy.fuller@azovnorth.ca</a><br><a href="mailto:matvii.ianchenko@azovnorth.ca">matvii.ianchenko@azovnorth.ca</a></p>
+          <p class="small" style="margin-top:0.4rem;"><strong>Location:</strong><br>Winnipeg, Manitoba, Canada</p>
+        </div>
+        <div class="box">
+          <h3>Quick Message (Optional)</h3>
+          <label>Your Name</label>
+          <input type="text" placeholder="Name">
+          <label>Your Email</label>
+          <input type="email" placeholder="you@example.com">
+          <label>Message</label>
+          <textarea placeholder="Short description of how we can help you."></textarea>
+          <button class="btn btn-secondary" type="button" onclick="alert('This is a demo form. Please email or call us directly to start a project.')">Send (demo)</button>
+          <p class="small" style="margin-top:0.4rem;">For real projects, please call or email using the contact information provided.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
