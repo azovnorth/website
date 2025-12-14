@@ -716,14 +716,27 @@
     }
 
     function copySummary(){
-      const text=document.getElementById('summary').textContent;
-      if(!text||text.indexOf('Quote Request')===-1){
-        generateSummary();
-      }
-      navigator.clipboard.writeText(document.getElementById('summary').textContent)
-        .then(()=>{document.getElementById('status-msg').textContent='Summary copied to clipboard. Paste it into an email to AzovNorth Industries.';})
-        .catch(()=>{document.getElementById('status-msg').textContent='Could not copy automatically. You can select and copy the text manually.';});
-    }
+  const text=document.getElementById('summary').textContent;
+  if(!text||text.indexOf('Quote Request')===-1){
+    generateSummary();
+  }
+
+  if(!navigator.clipboard){
+    document.getElementById('status-msg').textContent=
+      'Clipboard access not available. Please select and copy the text manually.';
+    return;
+  }
+
+  navigator.clipboard.writeText(document.getElementById('summary').textContent)
+    .then(()=>{
+      document.getElementById('status-msg').textContent=
+        'Summary copied to clipboard. Paste it into an email to AzovNorth Industries.';
+    })
+    .catch(()=>{
+      document.getElementById('status-msg').textContent=
+        'Could not copy automatically. You can select and copy the text manually.';
+    });
+}
 
     function saveToLocal(){
       const data={
