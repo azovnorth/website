@@ -716,10 +716,41 @@
     }
 
     function copySummary(){
-      const text=document.getElementById('summary').textContent;
-      if(!text||text.indexOf('Quote Request')===-1){
-        generateSummary();
+    const summaryEl = document.getElementById('summary');
+    const statusEl = document.getElementById('status-msg');
+
+    // If no real summary yet, generate one first
+    if (!summaryEl.textContent || summaryEl.textContent.indexOf('Quote Request') === -1){
+      generateSummary();
+    }
+
+    const text = summaryEl.textContent;
+
+    // Fallback if navigator.clipboard is not available
+    if (!navigator.clipboard || !navigator.clipboard.writeText){
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        statusEl.textContent = 'Summary copied to clipboard. Paste it into an email to AzovNorth Industries.';
+      } catch (e) {
+        statusEl.textContent = 'Could not copy automatically. You can select and copy the text manually.';
       }
+      document.body.removeChild(textarea);
+      return;
+    }
+
+    // Standard modern copy
+    navigator.clipboard.writeText(text)
+      .then(()=>{
+        statusEl.textContent = 'Summary copied to clipboard. Paste it into an email to AzovNorth Industries.';
+      })
+      .catch(()=>{
+        statusEl.textContent = 'Could not copy automatically. You can select and copy the text manually.';
+      });
+  }
       navigator.clipboard.writeText(document.getElementById('summary').textContent)
         .then(()=>{document.getElementById('status-msg').textContent='Summary copied to clipboard. Paste it into an email to AzovNorth Industries.';})
         .catch(()=>{document.getElementById('status-msg').textContent='Could not copy automatically. You can select and copy the text manually.';});
