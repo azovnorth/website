@@ -68,7 +68,27 @@
       color:#fcfefd;
     }
     header .contact-mini div{white-space:nowrap;}
+.top-nav{
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+}
 
+.top-nav button{
+  border:none;
+  background:transparent;
+  color:var(--accent-soft);
+  font-size:0.9rem;
+  cursor:pointer;
+  padding:0.25rem 0.6rem;
+  border-radius:999px;
+  border:1px solid transparent;
+}
+
+.top-nav button:hover{
+  border-color:var(--accent-soft);
+  background:rgba(255,183,77,0.08);
+}
     main{padding:0 5vw 4rem;}
 
     .hero{
@@ -306,16 +326,22 @@
 </head>
 <body>
   <header>
-    <div style="display:flex;align-items:center;gap:0.5rem;">
-      <img src="./WEB_Logo.jpg" alt="AzovNorth Industries Logo" class="logo">
-    </div>
-    <div class="contact-mini">
-  <div><strong>AzovNorth Industries</strong> – Winnipeg, Manitoba</div>
-  <div>Tel: <a href="tel:+12042926667">(204) 292-6667</a> · <a href="tel:+12048696305">(204) 869-6305</a></div>
-  <div>Email: <a href="mailto:billy.fuller@azovnorth.ca">billy.fuller@azovnorth.ca</a></div>
-  <div><a href="mailto:matvii.ianchenko@azovnorth.ca">matvii.ianchenko@azovnorth.ca</a></div>
-</div>
-  </header>
+  <div style="display:flex;align-items:center;gap:0.5rem;">
+    <img src="./WEB_Logo.jpg" alt="AzovNorth Industries Logo" class="logo">
+  </div>
+  <nav class="top-nav">
+    <button type="button" onclick="scrollToId('services')">Services</button>
+    <button type="button" onclick="scrollToId('projects')">Projects</button>
+    <button type="button" onclick="scrollToId('quote-section')">Quote</button>
+    <button type="button" onclick="scrollToId('contact')">Contact</button>
+  </nav>
+  <div class="contact-mini">
+    <div><strong>AzovNorth Industries</strong> – Winnipeg, Manitoba</div>
+    <div>Tel: <a href="tel:+12042926667">(204) 292-6667</a> · <a href="tel:+12048696305">(204) 869-6305</a></div>
+    <div>Email: <a href="mailto:billy.fuller@azovnorth.ca">billy.fuller@azovnorth.ca</a></div>
+    <div><a href="mailto:matvii.ianchenko@azovnorth.ca">matvii.ianchenko@azovnorth.ca</a></div>
+  </div>
+</header>
 
   <main>
     <section class="hero" id="top">
