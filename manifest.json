@@ -1,10 +1,10 @@
 {
   "name": "AzovNorth Industries",
   "short_name": "AzovNorth",
-  "start_url": "/",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#050814",
-  "theme_color": "#e53935",
+  "theme_color": "#050814",
   "icons": [
     {
       "src": "/logo-192.png",
@@ -15,6 +15,12 @@
       "src": "/logo-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/logo-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
