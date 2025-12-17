@@ -387,6 +387,13 @@
 .checkbox-row label{
   cursor:pointer;
 }
+a, button {
+      display: inline-block;        /* ensures padding counts for height */
+      padding: 0.5rem 1rem;         /* adjust size to reach at least 48px height */
+      line-height: 1.5;             /* increase vertical click area */
+      min-height: 48px;             /* ensures minimum height */
+      margin: 0.25rem 0;            /* space between interactive elements */
+}
   </style>
 </head>
 <body>
