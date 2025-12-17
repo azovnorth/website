@@ -357,6 +357,15 @@
   height: auto;
   display: block;
 }
+    .checkbox-row{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  margin-bottom:0.4rem;
+}
+.checkbox-row label{
+  cursor:pointer;
+}
   </style>
 </head>
 <body>
@@ -447,7 +456,6 @@
           </ul>
           <div class="tagline">Helps answer: “Do we have a working backup?”</div>
         </article>
-
         <article class="card">
           <div class="card-header">
             <input type="checkbox" id="svc-roadmap" onchange="syncService('Legacy Control System Upgrade Roadmap',this.checked)">
