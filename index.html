@@ -822,68 +822,46 @@
       saveToLocal();
     }
 
-    function buildSummary() {
-  const company = document.getElementById('f-company').value.trim();
-  const contact = document.getElementById('f-contact').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const location = document.getElementById('f-location').value.trim();
-  const machine = document.getElementById('f-machine').value.trim();
-  const notes = document.getElementById('f-notes').value.trim();
-  const services = [...selectedServices];
-
-  let lines = [];
-  lines.push('AzovNorth Industries – Quote Request');
-  lines.push('-----------------------------------');
-  if(company) lines.push('Company: ' + company);
-  if(contact) lines.push('Contact: ' + contact);
-  if(email) lines.push('Email: ' + email);
-  if(phone) lines.push('Phone: ' + phone);
-  if(location) lines.push('Site / City: ' + location);
-  if(machine) lines.push('Machine / Line: ' + machine);
-  lines.push('');
-  lines.push('Requested Services:');
-  
-  if(services.length === 0) {
-    lines.push('- (No services selected yet)');
-  } else {
-    services.forEach(s => lines.push('- ' + s));
-  }
-
-  lines.push('');
-  lines.push('Brief Description / Notes:');
-  lines.push(notes ? notes : '(Not provided yet)');
-  lines.push('');
-  lines.push('Please review this information and contact us with any questions or to provide a detailed quotation.');
-  
-  return lines.join('\n');
-}
+    function buildSummary(){
+      const company=document.getElementById('f-company').value.trim();
+      const contact=document.getElementById('f-contact').value.trim();
+      const email=document.getElementById('f-email').value.trim();
+      const phone=document.getElementById('f-phone').value.trim();
+      const location=document.getElementById('f-location').value.trim();
+      const machine=document.getElementById('f-machine').value.trim();
+      const notes=document.getElementById('f-notes').value.trim();
+      const services=[...selectedServices];
+      let lines=[];
+      lines.push('AzovNorth Industries – Quote Request');
+      lines.push('-----------------------------------');
+      if(company)lines.push('Company: '+company);
+      if(contact)lines.push('Contact: '+contact);
+      if(email)lines.push('Email: '+email);
+      if(phone)lines.push('Phone: '+phone);
+      if(location)lines.push('Site / City: '+location);
+      if(machine)lines.push('Machine / Line: '+machine);
+      lines.push('');
+      lines.push('Requested Services:');
+      if(services.length===0){
+        lines.push('- (No services selected yet)');
+      }else{
+        services.forEach(s=>lines.push('- '+s));
+      }
+      lines.push('');
+      lines.push('Brief Description / Notes:');
+      lines.push(notes?notes:'(Not provided yet)');
+      lines.push('');
+      lines.push('Please review this information and contact us with any questions or to provide a detailed quotation.');
+      return lines.join('\n');
+    }
 
     function generateSummary(){
-  // Clear selected services first
-  selectedServices.clear();
+      const summary=buildSummary();
+      document.getElementById('summary').textContent=summary;
+      document.getElementById('status-msg').textContent='Summary generated. You can copy it or send it to AzovNorth by email.';
+      saveToLocal();
+    }
 
-  // Uncheck all service checkboxes
-  const serviceIds = [
-    'svc-audit', 'svc-backup', 'svc-roadmap', 'svc-planning',
-    'svc-plc-rewrite', 'svc-hmi', 'svc-turnkey', 'svc-mods', 'svc-support'
-  ];
-  serviceIds.forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.checked = false;
-  });
-
-  // Update localStorage to remove only services
-  const data = JSON.parse(localStorage.getItem('azovnorth_quote') || '{}');
-  data.services = [];
-  localStorage.setItem('azovnorth_quote', JSON.stringify(data));
-
-  // Generate summary (will now show placeholder for no services)
-  const summary = buildSummary();
-  document.getElementById('summary').textContent = summary;
-  document.getElementById('status-msg').textContent =
-    'Summary generated. You can copy it or send it to AzovNorth by email.';
-}
     function copySummary(){
   const text=document.getElementById('summary').textContent;
   if(!text||text.indexOf('Quote Request')===-1){
