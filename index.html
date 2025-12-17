@@ -935,7 +935,21 @@
     }
 
     document.getElementById('year').textContent=new Date().getFullYear();
-    loadFromLocal();
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+// Clear everything on page load for a fresh start
+window.addEventListener('DOMContentLoaded', () => {
+  localStorage.removeItem('azovnorth_quote');
+  const textInputs = document.querySelectorAll('#quote-form input[type="text"], #quote-form input[type="email"], #quote-form textarea');
+  textInputs.forEach(input => input.value = '');
+  const serviceIds = ['svc-audit','svc-backup','svc-roadmap','svc-planning','svc-plc-rewrite','svc-hmi','svc-turnkey','svc-mods','svc-support'];
+  serviceIds.forEach(id => { const el=document.getElementById(id); if(el) el.checked=false; });
+  selectedServices.clear();
+  document.getElementById('summary').textContent='No services selected yet.';
+  document.getElementById('status-msg').textContent='';
+});
+
+// loadFromLocal();  ← you can remove or comment this line
   </script>
 </body>
 </html>
