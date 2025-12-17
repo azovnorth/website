@@ -783,6 +783,10 @@
   </footer>
 
   <script>
+    if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+    
     const selectedServices = new Set();
 
     function scrollToId(id){
