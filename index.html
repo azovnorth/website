@@ -821,7 +821,6 @@
 
     function syncService(label,checked){
       if(checked){selectedServices.add(label);}else{selectedServices.delete(label);}
-      saveToLocal();
     }
 
     function buildSummary(){
@@ -861,7 +860,6 @@
       const summary=buildSummary();
       document.getElementById('summary').textContent=summary;
       document.getElementById('status-msg').textContent='Summary generated. You can copy it or send it to AzovNorth by email.';
-      saveToLocal();
     }
 
     function copySummary(){
@@ -887,61 +885,12 @@
     });
 }
 
-    function saveToLocal(){
-      const data={
-        company:document.getElementById('f-company').value,
-        contact:document.getElementById('f-contact').value,
-        email:document.getElementById('f-email').value,
-        phone:document.getElementById('f-phone').value,
-        location:document.getElementById('f-location').value,
-        machine:document.getElementById('f-machine').value,
-        notes:document.getElementById('f-notes').value,
-        services:[...selectedServices]
-      };
-      try{localStorage.setItem('azovnorth_quote',JSON.stringify(data));}catch(e){}
-    }
-
-    function loadFromLocal(){
-      try{
-        const raw=localStorage.getItem('azovnorth_quote');
-        if(!raw)return;
-        const d=JSON.parse(raw);
-        document.getElementById('f-company').value=d.company||'';
-        document.getElementById('f-contact').value=d.contact||'';
-        document.getElementById('f-email').value=d.email||'';
-        document.getElementById('f-phone').value=d.phone||'';
-        document.getElementById('f-location').value=d.location||'';
-        document.getElementById('f-machine').value=d.machine||'';
-        document.getElementById('f-notes').value=d.notes||'';
-        (d.services||[]).forEach(label=>{
-          selectedServices.add(label);
-          const idMap={
-            'Automation System Health Audit':'svc-audit',
-            'PLC & HMI Program Backup Service':'svc-backup',
-            'Legacy Control System Upgrade Roadmap':'svc-roadmap',
-            'Control System Migration Planning':'svc-planning',
-            'Complete PLC Program Re‑Engineering':'svc-plc-rewrite',
-            'HMI Application Redesign & Tag Mapping':'svc-hmi',
-            'Turnkey PLC & HMI Migration (Full Re‑Engineering)':'svc-turnkey',
-            'PLC & HMI Program Modifications / Feature Upgrades':'svc-mods',
-            'On‑Call Automation Support':'svc-support'
-          };
-          const elId=idMap[label];
-          if(elId){
-            const el=document.getElementById(elId);
-            if(el)el.checked=true;
-          }
-        });
-        document.getElementById('summary').textContent=buildSummary();
-      }catch(e){}
-    }
-
     document.getElementById('year').textContent=new Date().getFullYear();
   
 // Clear everything on page load for a fresh start
 window.addEventListener('DOMContentLoaded', () => {
   localStorage.removeItem('azovnorth_quote');
-  const textInputs = document.querySelectorAll('#quote-form input[type="text"], #quote-form input[type="email"], #quote-form textarea');
+  const textInputs = document.querySelectorAll('#quote-section input[type="text"], #quote-section input[type="email"], #quote-section textarea');
   textInputs.forEach(input => input.value = '');
   const serviceIds = ['svc-audit','svc-backup','svc-roadmap','svc-planning','svc-plc-rewrite','svc-hmi','svc-turnkey','svc-mods','svc-support'];
   serviceIds.forEach(id => { const el=document.getElementById(id); if(el) el.checked=false; });
