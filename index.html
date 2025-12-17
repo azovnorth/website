@@ -607,47 +607,47 @@
         <p class="small" style="margin-bottom:0.4rem;">You can tick services here as well. These selections are included in the quote summary.</p>
         <div class="checkbox-group">
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-audit-mini" name="services" value="Legacy Control System Audit" onchange="syncService('Legacy Control System Audit',this.checked)">
+            <input type="checkbox" id="svc-audit-mini" name="services" value="Legacy Control System Audit" onchange="syncServiceByKey('audit', this.checked)">
             <label for="svc-audit-mini">Legacy Control System Audit</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-backup-mini" name="services" value="PLC Backup & Recovery" onchange="syncService('PLC Backup & Recovery',this.checked)">
+            <input type="checkbox" id="svc-backup-mini" name="services" value="PLC Backup & Recovery" onchange="syncServiceByKey('backup', this.checked)">
             <label for="svc-backup-mini">PLC Backup &amp; Recovery</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-roadmap-mini" name="services" value="Modernization Roadmap" onchange="syncService('Modernization Roadmap',this.checked)">
+            <input type="checkbox" id="svc-roadmap-mini" name="services" value="Modernization Roadmap" onchange="syncServiceByKey('roadmap', this.checked)">
             <label for="svc-roadmap-mini">Control System Modernization Roadmap</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-planning-mini" name="services" value="Migration Planning" onchange="syncService('Migration Planning',this.checked)">
+            <input type="checkbox" id="svc-planning-mini" name="services" value="Migration Planning" onchange="syncServiceByKey('planning', this.checked)">
             <label for="svc-planning-mini">Migration Planning</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-plc-rewrite-mini" name="services" value="PLC Program Rewrite" onchange="syncService('PLC Program Rewrite',this.checked)">
+            <input type="checkbox" id="svc-plc-rewrite-mini" name="services" value="PLC Program Rewrite" onchange="syncServiceByKey('plcRewrite', this.checked)">
             <label for="svc-plc-rewrite-mini">PLC Program Rewrite</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-hmi-mini" name="services" value="HMI Screen Redesign" onchange="syncService('HMI Screen Redesign',this.checked)">
+            <input type="checkbox" id="svc-hmi-mini" name="services" value="HMI Screen Redesign" onchange="syncServiceByKey('hmi', this.checked)">
             <label for="svc-hmi-mini">HMI Screen Redesign</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-turnkey-mini" name="services" value="Turnkey Controls Upgrade" onchange="syncService('Turnkey Controls Upgrade',this.checked)">
+            <input type="checkbox" id="svc-turnkey-mini" name="services" value="Turnkey Controls Upgrade" onchange="syncServiceByKey('turnkey', this.checked)">
             <label for="svc-turnkey-mini">Turnkey Controls Upgrade</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-mods-mini" name="services" value="Small Control Modifications" onchange="syncService('Small Control Modifications',this.checked)">
+            <input type="checkbox" id="svc-mods-mini" name="services" value="Small Control Modifications" onchange="syncServiceByKey('mods', this.checked)">
             <label for="svc-mods-mini">Small Control Modifications</label>
           </div>
 
           <div class="checkbox-row">
-            <input type="checkbox" id="svc-support-mini" name="services" value="Ongoing Support" onchange="syncService('Ongoing Support',this.checked)">
+            <input type="checkbox" id="svc-support-mini" name="services" value="Ongoing Support" onchange="syncServiceByKey('support', this.checked)">
             <label for="svc-support-mini">Ongoing Support</label>
           </div>
         </div>
