@@ -5,7 +5,6 @@
   <title>AzovNorth Industries | Industrial Automation & Control</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="AzovNorth Industries provides industrial automation, PLC and HMI programming, legacy control system audits, and modernization planning for manufacturers in Winnipeg and Manitoba.">
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://www.azovnorth.ca/">
   <script type="application/ld+json">
 {
@@ -71,43 +70,43 @@
       z-index:20;
     }
     header img.logo{
-  height:80px;
-  width:auto;
-  max-width:520px;
-  object-fit:contain;
-}
-@media (max-width:900px){
-  header img.logo{
-    height:80px;
-  }
-}
+      height:80px;
+      width:auto;
+      max-width:520px;
+      object-fit:contain;
+    }
+    @media (max-width:900px){
+      header img.logo{
+        height:80px;
+      }
+    }
     header .contact-mini{
       text-align:right;
       font-size:0.85rem;
       color:#fcfefd;
     }
     header .contact-mini div{white-space:nowrap;}
-.top-nav{
-  display:flex;
-  gap:0.75rem;
-  align-items:center;
-}
 
-.top-nav button{
-  border:none;
-  background:transparent;
-  color:var(--accent-soft);
-  font-size:0.9rem;
-  cursor:pointer;
-  padding:0.25rem 0.6rem;
-  border-radius:999px;
-  border:1px solid transparent;
-}
+    .top-nav{
+      display:flex;
+      gap:0.75rem;
+      align-items:center;
+    }
+    .top-nav button{
+      border:none;
+      background:transparent;
+      color:var(--accent-soft);
+      font-size:0.9rem;
+      cursor:pointer;
+      padding:0.25rem 0.6rem;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .top-nav button:hover{
+      border-color:var(--accent-soft);
+      background:rgba(255,183,77,0.08);
+    }
 
-.top-nav button:hover{
-  border-color:var(--accent-soft);
-  background:rgba(255,183,77,0.08);
-}
     main{padding:0 5vw 4rem;}
 
     .hero{
@@ -255,9 +254,11 @@
     .card ul{padding-left:1.1rem;font-size:0.84rem;color:var(--text-muted);}
     .card ul li{margin-bottom:0.12rem;}
     .tagline{font-size:0.82rem;color:var(--text-muted);margin-top:auto;}
-#projects .card{
-  background:linear-gradient(160deg,#151a2c,#101425);
-}
+
+    #projects .card{
+      background:linear-gradient(160deg,#151a2c,#101425);
+    }
+
     .two-col{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -341,54 +342,65 @@
       header .contact-mini{text-align:left;}
       .two-col,.contact-cols{grid-template-columns:1fr;}
     }
-  /* === Project image layout fix === */
-.project-image {
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.project-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-    img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+
+    .project-image{
+      width:100%;
+      border-radius:10px;
+      overflow:hidden;
+    }
+    .project-image img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+    img{
+      max-width:100%;
+      height:auto;
+      display:block;
+    }
+
     .checkbox-row{
-  display:flex;
-  align-items:center;
-  gap:0.5rem;
-  margin-bottom:0.4rem;
-}
-.checkbox-row label{
-  cursor:pointer;
-}
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      margin-bottom:0.4rem;
+    }
+    .checkbox-row label{
+      cursor:pointer;
+      font-size:0.9rem;
+      color:var(--text-main);
+    }
+    .checkbox-group{
+      margin-top:0.9rem;
+      margin-bottom:0.9rem;
+      padding:0.6rem 0.7rem;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#050814;
+    }
   </style>
 </head>
 <body>
   <header>
-  <div style="display:flex;align-items:center;gap:0.5rem;">
-    <img src="logo.webp"
-     alt="AzovNorth Industries Logo"
-     class="logo"
-     width="300"
-     height="75">
-  </div>
-  <nav class="top-nav">
-    <button type="button" onclick="scrollToId('services')">Services</button>
-    <button type="button" onclick="scrollToId('projects')">Projects</button>
-    <button type="button" onclick="scrollToId('quote-section')">Quote</button>
-    <button type="button" onclick="scrollToId('contact')">Contact</button>
-  </nav>
-  <div class="contact-mini">
-    <div><strong>AzovNorth Industries</strong> – Winnipeg, Manitoba</div>
-    <div>Tel: <a href="tel:+12042926667">(204) 292-6667</a> · <a href="tel:+12048696305">(204) 869-6305</a></div>
-    <div>Email: <a href="mailto:azovnorth@gmail.com">azovnorth@gmail.com</a></div>
-  </div>
-</header>
+    <div style="display:flex;align-items:center;gap:0.5rem;">
+      <img src="logo.webp"
+           alt="AzovNorth Industries Logo"
+           class="logo"
+           width="300"
+           height="75">
+    </div>
+    <nav class="top-nav">
+      <button type="button" onclick="scrollToId('services')">Services</button>
+      <button type="button" onclick="scrollToId('projects')">Projects</button>
+      <button type="button" onclick="scrollToId('quote-section')">Quote</button>
+      <button type="button" onclick="scrollToId('contact')">Contact</button>
+    </nav>
+    <div class="contact-mini">
+      <div><strong>AzovNorth Industries</strong> – Winnipeg, Manitoba</div>
+      <div>Tel: <a href="tel:+12042926667">(204) 292-6667</a> · <a href="tel:+12048696305">(204) 869-6305</a></div>
+      <div>Email: <a href="mailto:azovnorth@gmail.com">azovnorth@gmail.com</a></div>
+    </div>
+  </header>
 
   <main>
     <section class="hero" id="top">
@@ -456,6 +468,7 @@
           </ul>
           <div class="tagline">Helps answer: “Do we have a working backup?”</div>
         </article>
+
         <article class="card">
           <div class="card-header">
             <input type="checkbox" id="svc-roadmap" onchange="syncService('Legacy Control System Upgrade Roadmap',this.checked)">
@@ -587,6 +600,59 @@
     <section id="quote-section">
       <h2 class="section-title">Request a Service Quote</h2>
       <p class="section-sub">Use this form to tell us which services you are interested in. We will review your information and may contact you with clarifying questions before preparing a detailed quote.</p>
+
+      <!-- New compact checkbox group for quick service selection -->
+      <div class="box" style="margin-bottom:1.2rem;">
+        <h3 style="margin-bottom:0.4rem;">Which services are you interested in?</h3>
+        <p class="small" style="margin-bottom:0.4rem;">You can tick services here as well. These selections are included in the quote summary.</p>
+        <div class="checkbox-group">
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-audit-mini" name="services" value="Legacy Control System Audit" onchange="syncService('Legacy Control System Audit',this.checked)">
+            <label for="svc-audit-mini">Legacy Control System Audit</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-backup-mini" name="services" value="PLC Backup & Recovery" onchange="syncService('PLC Backup & Recovery',this.checked)">
+            <label for="svc-backup-mini">PLC Backup &amp; Recovery</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-roadmap-mini" name="services" value="Modernization Roadmap" onchange="syncService('Modernization Roadmap',this.checked)">
+            <label for="svc-roadmap-mini">Control System Modernization Roadmap</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-planning-mini" name="services" value="Migration Planning" onchange="syncService('Migration Planning',this.checked)">
+            <label for="svc-planning-mini">Migration Planning</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-plc-rewrite-mini" name="services" value="PLC Program Rewrite" onchange="syncService('PLC Program Rewrite',this.checked)">
+            <label for="svc-plc-rewrite-mini">PLC Program Rewrite</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-hmi-mini" name="services" value="HMI Screen Redesign" onchange="syncService('HMI Screen Redesign',this.checked)">
+            <label for="svc-hmi-mini">HMI Screen Redesign</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-turnkey-mini" name="services" value="Turnkey Controls Upgrade" onchange="syncService('Turnkey Controls Upgrade',this.checked)">
+            <label for="svc-turnkey-mini">Turnkey Controls Upgrade</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-mods-mini" name="services" value="Small Control Modifications" onchange="syncService('Small Control Modifications',this.checked)">
+            <label for="svc-mods-mini">Small Control Modifications</label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="svc-support-mini" name="services" value="Ongoing Support" onchange="syncService('Ongoing Support',this.checked)">
+            <label for="svc-support-mini">Ongoing Support</label>
+          </div>
+        </div>
+      </div>
+
       <div class="two-col">
         <div class="box">
           <h3>Company &amp; Project Details</h3>
@@ -634,13 +700,13 @@
             </div>
           </div>
           <picture>
-  <source srcset="projects/packaging-line.webp" type="image/webp">
-  <img src="projects/packaging-line.jpg"
-       alt="Upgraded PLC panel for packaging line"
-       loading="lazy"
-       width="900"
-       height="500">
-</picture>
+            <source srcset="projects/packaging-line.webp" type="image/webp">
+            <img src="projects/packaging-line.jpg"
+                 alt="Upgraded PLC panel for packaging line"
+                 loading="lazy"
+                 width="900"
+                 height="500">
+          </picture>
           <p>Replaced an aging PLC with a modern platform, added structured tags, and improved diagnostics to reduce unplanned downtime.</p>
           <ul>
             <li>New PLC hardware and I/O mapping</li>
@@ -657,13 +723,13 @@
             </div>
           </div>
           <picture>
-  <source srcset="projects/conveyor-hmi.webp" type="image/webp">
-  <img src="projects/conveyor-hmi.jpg"
-       alt="Redesigned HMI screens for conveyor system"
-       loading="lazy"
-       width="900"
-       height="500">
-</picture>
+            <source srcset="projects/conveyor-hmi.webp" type="image/webp">
+            <img src="projects/conveyor-hmi.jpg"
+                 alt="Redesigned HMI screens for conveyor system"
+                 loading="lazy"
+                 width="900"
+                 height="500">
+          </picture>
           <p>Redesigned HMI screens for a multi‑zone conveyor, making it easier for operators to see faults and adjust speeds.</p>
           <ul>
             <li>Alarm summary and merge switch control</li>
@@ -680,14 +746,13 @@
             </div>
           </div>
           <picture>
-  <source srcset="projects/panel-audit.webp" type="image/webp">
-  <img src="projects/panel-audit.jpg"
-       alt="Documented industrial control panel audit"
-       loading="lazy"
-       width="900"
-       height="500">
-</picture>
-
+            <source srcset="projects/panel-audit.webp" type="image/webp">
+            <img src="projects/panel-audit.jpg"
+                 alt="Documented industrial control panel audit"
+                 loading="lazy"
+                 width="900"
+                 height="500">
+          </picture>
           <p>Moving the system from old Allen-Bradley PLC-5 to an AutomationDirect platform, including design, programming, testing, and commissioning support.</p>
           <ul>
             <li>Program rewrite from RSLogix 500 for Click ladder logic</li>
@@ -709,30 +774,25 @@
           <p class="small" style="margin-top:0.4rem;"><strong>Location:</strong><br>Winnipeg, Manitoba, Canada</p>
         </div>
         <div class="box">
-  <h3>Quick Message (Optional)</h3>
-  <form action="https://formspree.io/f/mqarjaew" method="POST">
-  <label for="contact-name">Your Name</label>
-  <input id="contact-name" name="name" type="text" placeholder="Name" required>
+          <h3>Quick Message (Optional)</h3>
+          <form action="https://formspree.io/f/mqarjaew" method="POST">
+            <label for="contact-name">Your Name</label>
+            <input id="contact-name" name="name" type="text" placeholder="Name" required>
 
-  <label for="contact-email">Your Email</label>
-  <input id="contact-email" name="email" type="email" placeholder="you@example.com" required>
+            <label for="contact-email">Your Email</label>
+            <input id="contact-email" name="email" type="email" placeholder="you@example.com" required>
 
-  <label for="contact-message">Message</label>
-  <textarea id="contact-message" name="message" placeholder="Short description of how we can help you." required></textarea>
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Short description of how we can help you." required></textarea>
 
-  <!-- Email subject -->
-  <input type="hidden" name="_subject" value="New message from AzovNorth website">
+            <input type="hidden" name="_subject" value="New message from AzovNorth website">
+            <input type="hidden" name="_redirect" value="https://www.azovnorth.ca/thank-you.html">
+            <input type="text" name="_gotcha" style="display:none">
 
-  <!-- Redirect after success -->
-  <input type="hidden" name="_redirect" value="https://www.azovnorth.ca/thank-you.html">
-
-  <!-- Honeypot spam trap -->
-  <input type="text" name="_gotcha" style="display:none">
-
-  <button class="btn btn-secondary" type="submit">Send message</button>
-</form>
-  <p class="small" style="margin-top:0.4rem;">For urgent projects, please call or email using the contact information provided.</p>
-</div>
+            <button class="btn btn-secondary" type="submit">Send message</button>
+          </form>
+          <p class="small" style="margin-top:0.4rem;">For urgent projects, please call or email using the contact information provided.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -798,27 +858,27 @@
     }
 
     function copySummary(){
-  const text=document.getElementById('summary').textContent;
-  if(!text||text.indexOf('Quote Request')===-1){
-    generateSummary();
-  }
+      const text=document.getElementById('summary').textContent;
+      if(!text||text.indexOf('Quote Request')===-1){
+        generateSummary();
+      }
 
-  if(!navigator.clipboard){
-    document.getElementById('status-msg').textContent=
-      'Clipboard access not available. Please select and copy the text manually.';
-    return;
-  }
+      if(!navigator.clipboard){
+        document.getElementById('status-msg').textContent=
+          'Clipboard access not available. Please select and copy the text manually.';
+        return;
+      }
 
-  navigator.clipboard.writeText(document.getElementById('summary').textContent)
-    .then(()=>{
-      document.getElementById('status-msg').textContent=
-        'Summary copied to clipboard. Paste it into an email to AzovNorth Industries.';
-    })
-    .catch(()=>{
-      document.getElementById('status-msg').textContent=
-        'Could not copy automatically. You can select and copy the text manually.';
-    });
-}
+      navigator.clipboard.writeText(document.getElementById('summary').textContent)
+        .then(()=>{
+          document.getElementById('status-msg').textContent=
+            'Summary copied to clipboard. Paste it into an email to AzovNorth Industries.';
+        })
+        .catch(()=>{
+          document.getElementById('status-msg').textContent=
+            'Could not copy automatically. You can select and copy the text manually.';
+        });
+    }
 
     function saveToLocal(){
       const data={
@@ -857,7 +917,16 @@
             'HMI Application Redesign & Tag Mapping':'svc-hmi',
             'Turnkey PLC & HMI Migration (Full Re‑Engineering)':'svc-turnkey',
             'PLC & HMI Program Modifications / Feature Upgrades':'svc-mods',
-            'On‑Call Automation Support':'svc-support'
+            'On‑Call Automation Support':'svc-support',
+            'Legacy Control System Audit':'svc-audit-mini',
+            'PLC Backup & Recovery':'svc-backup-mini',
+            'Modernization Roadmap':'svc-roadmap-mini',
+            'Migration Planning':'svc-planning-mini',
+            'PLC Program Rewrite':'svc-plc-rewrite-mini',
+            'HMI Screen Redesign':'svc-hmi-mini',
+            'Turnkey Controls Upgrade':'svc-turnkey-mini',
+            'Small Control Modifications':'svc-mods-mini',
+            'Ongoing Support':'svc-support-mini'
           };
           const elId=idMap[label];
           if(elId){
