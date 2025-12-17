@@ -437,7 +437,7 @@
       <div class="services-grid">
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-audit" onchange="syncService('Automation System Health Audit',this.checked)">
+            <input type="checkbox" id="svc-audit" onchange="syncServiceByKey('audit', this.checked)">
             <div>
               <h3>Automation System Health Audit</h3>
               <small>Check‑up of your existing control system</small>
@@ -454,7 +454,7 @@
 
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-backup" onchange="syncService('PLC & HMI Program Backup Service',this.checked)">
+            <input type="checkbox" id="svc-backup" onchange="syncServiceByKey('backup', this.checked)">
             <div>
               <h3>PLC &amp; HMI Program Backup Service</h3>
               <small>Protect your programs before hardware fails</small>
@@ -471,7 +471,7 @@
 
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-roadmap" onchange="syncService('Legacy Control System Upgrade Roadmap',this.checked)">
+            <input type="checkbox" id="svc-roadmap" onchange="syncServiceByKey('roadmap', this.checked)">
             <div>
               <h3>Legacy Control System Upgrade Roadmap</h3>
               <small>Step‑by‑step modernization plan</small>
@@ -488,7 +488,7 @@
 
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-planning" onchange="syncService('Control System Migration Planning',this.checked)">
+            <input type="checkbox" id="svc-planning" onchange="syncServiceByKey('planning', this.checked)">
             <div>
               <h3>Control System Migration Planning</h3>
               <small>Plan brand‑to‑brand PLC changes</small>
@@ -512,7 +512,7 @@
       <div class="services-grid">
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-plc-rewrite" onchange="syncService('Complete PLC Program Re‑Engineering',this.checked)">
+            <input type="checkbox" id="svc-plc-rewrite" onchange="syncServiceByKey('plcRewrite', this.checked)">
             <div>
               <h3>Complete PLC Program Re‑Engineering</h3>
               <small>Rebuild legacy PLC code on a modern controller</small>
@@ -529,7 +529,7 @@
 
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-hmi" onchange="syncService('HMI Application Redesign & Tag Mapping',this.checked)">
+            <input type="checkbox" id="svc-hmi" onchange="syncServiceByKey('hmi', this.checked)">
             <div>
               <h3>HMI Application Redesign &amp; Tag Mapping</h3>
               <small>New operator screens matched to the new PLC program</small>
@@ -546,7 +546,7 @@
 
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-turnkey" onchange="syncService('Turnkey PLC & HMI Migration (Full Re‑Engineering)',this.checked)">
+            <input type="checkbox" id="svc-turnkey" onchange="syncServiceByKey('turnkey', this.checked)">
             <div>
               <h3>Turnkey PLC &amp; HMI Migration</h3>
               <small>Full re‑engineering from old to new platform</small>
@@ -563,7 +563,7 @@
 
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-mods" onchange="syncService('PLC & HMI Program Modifications / Feature Upgrades',this.checked)">
+            <input type="checkbox" id="svc-mods" onchange="syncServiceByKey('mods', this.checked)">
             <div>
               <h3>PLC &amp; HMI Program Modifications / Feature Upgrades</h3>
               <small>Smaller changes and improvements to existing systems</small>
@@ -580,7 +580,7 @@
 
         <article class="card">
           <div class="card-header">
-            <input type="checkbox" id="svc-support" onchange="syncService('On‑Call Automation Support',this.checked)">
+            <input type="checkbox" id="svc-support" onchange="syncServiceByKey('support', this.checked)"">
             <div>
               <h3>On‑Call Automation Support</h3>
               <small>Help when automation issues affect production</small>
@@ -806,17 +806,71 @@
 
   <script>
     const selectedServices = new Set();
-
+    const SERVICE_MAP = {
+  audit: {
+    label: 'Legacy Control System Audit',
+    cardId: 'svc-audit',
+    quoteId: 'svc-audit-mini'
+  },
+  backup: {
+    label: 'PLC Backup & Recovery',
+    cardId: 'svc-backup',
+    quoteId: 'svc-backup-mini'
+  },
+  roadmap: {
+    label: 'Control System Modernization Roadmap',
+    cardId: 'svc-roadmap',
+    quoteId: 'svc-roadmap-mini'
+  },
+  planning: {
+    label: 'Migration Planning',
+    cardId: 'svc-planning',
+    quoteId: 'svc-planning-mini'
+  },
+  plcRewrite: {
+    label: 'PLC Program Rewrite',
+    cardId: 'svc-plc-rewrite',
+    quoteId: 'svc-plc-rewrite-mini'
+  },
+  hmi: {
+    label: 'HMI Screen Redesign',
+    cardId: 'svc-hmi',
+    quoteId: 'svc-hmi-mini'
+  },
+  turnkey: {
+    label: 'Turnkey Controls Upgrade',
+    cardId: 'svc-turnkey',
+    quoteId: 'svc-turnkey-mini'
+  },
+  mods: {
+    label: 'Small Control Modifications',
+    cardId: 'svc-mods',
+    quoteId: 'svc-mods-mini'
+  },
+  support: {
+    label: 'Ongoing Support',
+    cardId: 'svc-support',
+    quoteId: 'svc-support-mini'
+  }
+};
     function scrollToId(id){
       const el=document.getElementById(id);
       if(el){el.scrollIntoView({behavior:'smooth'});}
     }
-
-    function syncService(label,checked){
-      if(checked){selectedServices.add(label);}else{selectedServices.delete(label);}
-      saveToLocal();
-    }
-
+    function syncServiceByKey(key, checked) {
+  const svc = SERVICE_MAP[key];
+  if (!svc) return;
+  if (checked) {
+    selectedServices.add(svc.label);
+  } else {
+    selectedServices.delete(svc.label);
+  }
+  const card = document.getElementById(svc.cardId);
+  const quote = document.getElementById(svc.quoteId);
+  if (card) card.checked = checked;
+  if (quote) quote.checked = checked;
+  saveToLocal();
+}
     function buildSummary(){
       const company=document.getElementById('f-company').value.trim();
       const contact=document.getElementById('f-contact').value.trim();
@@ -849,26 +903,22 @@
       lines.push('Please review this information and contact us with any questions or to provide a detailed quotation.');
       return lines.join('\n');
     }
-
     function generateSummary(){
       const summary=buildSummary();
       document.getElementById('summary').textContent=summary;
       document.getElementById('status-msg').textContent='Summary generated. You can copy it or send it to AzovNorth by email.';
       saveToLocal();
     }
-
     function copySummary(){
       const text=document.getElementById('summary').textContent;
       if(!text||text.indexOf('Quote Request')===-1){
         generateSummary();
       }
-
       if(!navigator.clipboard){
         document.getElementById('status-msg').textContent=
           'Clipboard access not available. Please select and copy the text manually.';
         return;
       }
-
       navigator.clipboard.writeText(document.getElementById('summary').textContent)
         .then(()=>{
           document.getElementById('status-msg').textContent=
@@ -879,7 +929,6 @@
             'Could not copy automatically. You can select and copy the text manually.';
         });
     }
-
     function saveToLocal(){
       const data={
         company:document.getElementById('f-company').value,
@@ -893,51 +942,37 @@
       };
       try{localStorage.setItem('azovnorth_quote',JSON.stringify(data));}catch(e){}
     }
-
-    function loadFromLocal(){
-      try{
-        const raw=localStorage.getItem('azovnorth_quote');
-        if(!raw)return;
-        const d=JSON.parse(raw);
-        document.getElementById('f-company').value=d.company||'';
-        document.getElementById('f-contact').value=d.contact||'';
-        document.getElementById('f-email').value=d.email||'';
-        document.getElementById('f-phone').value=d.phone||'';
-        document.getElementById('f-location').value=d.location||'';
-        document.getElementById('f-machine').value=d.machine||'';
-        document.getElementById('f-notes').value=d.notes||'';
-        (d.services||[]).forEach(label=>{
+function loadFromLocal(){
+  try{
+    const raw = localStorage.getItem('azovnorth_quote');
+    if (!raw) return;
+    const d = JSON.parse(raw);
+    document.getElementById('f-company').value  = d.company  || '';
+    document.getElementById('f-contact').value  = d.contact  || '';
+    document.getElementById('f-email').value    = d.email    || '';
+    document.getElementById('f-phone').value    = d.phone    || '';
+    document.getElementById('f-location').value = d.location || '';
+    document.getElementById('f-machine').value  = d.machine  || '';
+    document.getElementById('f-notes').value    = d.notes    || '';
+    // Restore services and sync BOTH card + quote checkboxes
+    (d.services || []).forEach(label => {
+      Object.values(SERVICE_MAP).forEach(svc => {
+        if (svc.label === label) {
           selectedServices.add(label);
-          const idMap={
-            'Automation System Health Audit':'svc-audit',
-            'PLC & HMI Program Backup Service':'svc-backup',
-            'Legacy Control System Upgrade Roadmap':'svc-roadmap',
-            'Control System Migration Planning':'svc-planning',
-            'Complete PLC Program Re‑Engineering':'svc-plc-rewrite',
-            'HMI Application Redesign & Tag Mapping':'svc-hmi',
-            'Turnkey PLC & HMI Migration (Full Re‑Engineering)':'svc-turnkey',
-            'PLC & HMI Program Modifications / Feature Upgrades':'svc-mods',
-            'On‑Call Automation Support':'svc-support',
-            'Legacy Control System Audit':'svc-audit-mini',
-            'PLC Backup & Recovery':'svc-backup-mini',
-            'Modernization Roadmap':'svc-roadmap-mini',
-            'Migration Planning':'svc-planning-mini',
-            'PLC Program Rewrite':'svc-plc-rewrite-mini',
-            'HMI Screen Redesign':'svc-hmi-mini',
-            'Turnkey Controls Upgrade':'svc-turnkey-mini',
-            'Small Control Modifications':'svc-mods-mini',
-            'Ongoing Support':'svc-support-mini'
-          };
-          const elId=idMap[label];
-          if(elId){
-            const el=document.getElementById(elId);
-            if(el)el.checked=true;
-          }
-        });
-        document.getElementById('summary').textContent=buildSummary();
-      }catch(e){}
-    }
 
+          const card  = document.getElementById(svc.cardId);
+          const quote = document.getElementById(svc.quoteId);
+
+          if (card)  card.checked  = true;
+          if (quote) quote.checked = true;
+        }
+      });
+    });
+    document.getElementById('summary').textContent = buildSummary();
+  } catch (e) {
+    console.warn('Could not load saved quote data', e);
+  }
+}  
     document.getElementById('year').textContent=new Date().getFullYear();
     loadFromLocal();
   </script>
