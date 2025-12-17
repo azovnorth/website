@@ -355,7 +355,7 @@
     }
     footer .social a{margin-right:0.5rem;}
 
-    @media(max-width:900px){
+    @media(max-width:768px){
       .hero{grid-template-columns:1fr;}
       .hero-aside{order:-1;}
       header{flex-direction:column;align-items:flex-start;}
@@ -391,7 +391,7 @@
   display: inline-block;   /* ensures padding counts for height */
   padding: 0.25rem 1rem;    /* increase clickable area */
   min-height: 48px;        /* ensures minimum height for touch */
-  line-height: 0.25;        /* extra spacing inside links */
+  line-height: 1.2;        /* extra spacing inside links */
   margin-bottom: 0.25rem;  /* space between links */
       font-size: 1.0rem;       /* increase font size */
 }
@@ -755,11 +755,13 @@
       <div class="contact-cols">
         <div class="box">
           <h3>Direct Contact</h3>
-          <p class="small"><strong>Phone:</strong><br>
-            <span class="contact-items">
+          <p class="small">
+  <strong>Phone:</strong><br>
+  <span class="contact-items">
     <a href="tel:+12042926667">(204) 292-6667</a><br>
     <a href="tel:+12048696305">(204) 869-6305</a>
   </span>
+</p>
          <p class="small" style="margin-top:0.4rem;">
   <strong>Email:</strong><br>
   <span class="contact-items">
@@ -935,8 +937,7 @@
     }
 
     document.getElementById('year').textContent=new Date().getFullYear();
-    document.getElementById('year').textContent=new Date().getFullYear();
-
+  
 // Clear everything on page load for a fresh start
 window.addEventListener('DOMContentLoaded', () => {
   localStorage.removeItem('azovnorth_quote');
@@ -948,8 +949,6 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('summary').textContent='No services selected yet.';
   document.getElementById('status-msg').textContent='';
 });
-
-// loadFromLocal();  ← you can remove or comment this line
   </script>
 </body>
 </html>
