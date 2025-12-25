@@ -1,6 +1,8 @@
-self.addEventListener('install', () => {
+self.addEventListener('install', event => {
   self.skipWaiting();
 });
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed:', err));
-}
+
+self.addEventListener('activate', event => {
+  // Basic activate handler
+  clients.claim();
+});
