@@ -833,7 +833,15 @@ footer a:hover {
 
   <script>
     if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => {
+        console.log('Service worker registered with scope:', reg.scope);
+      })
+      .catch(err => {
+        console.error('Service worker registration failed:', err);
+      });
+  });
 }
     
     const selectedServices = new Set();
