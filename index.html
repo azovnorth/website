@@ -399,6 +399,14 @@
   display: block;
   margin-top: 1.0rem; /* space between label and first number */
 }
+    footer a {
+  color: var(--accent-soft);
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
@@ -804,11 +812,19 @@
   </main>
 
   <footer>
-    <div>© <span id="year"></span> AzovNorth Industries. All rights reserved.</div>
-    <div class="social">
-      <span>Website placeholder – add LinkedIn / GitHub / company links when ready.</span>
-    </div>
-  </footer>
+  <div>© <span id="year"></span> AzovNorth Industries. All rights reserved.</div>
+
+  <div class="social">
+    <span>
+      Find us on Google:
+      <a href="https://share.google/o7OQdA2MX1aoFpYw6"
+         target="_blank"
+         rel="noopener">
+        AzovNorth Industries – Winnipeg
+      </a>
+    </span>
+  </div>
+</footer>
 
   <script>
     if ('serviceWorker' in navigator) {
